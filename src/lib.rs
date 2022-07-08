@@ -33,7 +33,7 @@ pub fn parse_to_html(gmi: &str) -> Result<Vec<String>, Box<dyn Error>> {
     let (mut cb_bool, mut cb_text) = (false, String::new());
     let (mut list_bool, mut list_text) = (false, String::new());
 
-    for line in gmi.lines() {
+    'main: for line in gmi.lines() {
         let line = line.trim_start();
 
         if let Some(strip) = line.strip_prefix("* ") {
@@ -78,6 +78,13 @@ pub fn parse_to_html(gmi: &str) -> Result<Vec<String>, Box<dyn Error>> {
         if let Some(strip) = line.strip_prefix("=> ") {
             let url = strip.split_whitespace().next().ok_or(ParseGmiErr)?;
             let text = strip.strip_prefix(url).ok_or(ParseGmiErr)?.trim_start();
+            let image_formats = [".jpeg", ".png", ".jpg", ".webp", ".gif", ".svg"];
+            for format in image_formats {
+                if url.ends_with(format) {
+                    result.push(format!("<img src=\"{url}>\"{text}</img>"));
+                    continue 'main
+                }
+            }
             result.push(format!("<a href=\"{url}\">{text}</a>"));
             continue;
         }
