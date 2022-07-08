@@ -1,7 +1,7 @@
 use std::fs;
 use std::fs::File;
 use std::io::Write;
-use gmi2html::parse_to_html;
+use gemini2html::parse_to_html;
 
 #[test]
 fn file_test() {

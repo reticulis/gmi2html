@@ -1,6 +1,6 @@
 [package]
 authors = ["reticulis"]
-name = "gmi2html"
+name = "gemini2html"
 version = "0.1.0"
 edition = "2021"
 description = "Simple library for parsing Gemini (gmi) to HTML format"

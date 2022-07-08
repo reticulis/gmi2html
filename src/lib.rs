@@ -1,5 +1,14 @@
-//! # gmi2html
+//! # gemini2html
 //! Simple library for parsing Gemini (gmi) to HTML format
+//! Example usage:
+//! ```
+//! use gemini2html::parse_to_html;
+//!
+//! let header = "# Title\n ## Description";
+//! let html: Vec<String> = parse_to_html(header).unwrap();
+//!
+//! assert_eq!(html, vec!["<h1>Title</h1>", "<h2>Description</h2>"])
+//! ```
 
 use std::error::Error;
 use std::fmt;
@@ -18,16 +27,6 @@ impl fmt::Display for ParseGmiErr {
 impl Error for ParseGmiErr {}
 
 /// Parse gemini (gmi) to html format
-///
-/// Usage:
-/// ```
-/// use gmi2html::parse_to_html;
-///
-/// let header = "# Title\n ## Description";
-/// let html: Vec<String> = parse_to_html(header).unwrap();
-///
-/// assert_eq!(html, vec!["<h1>Title</h1>", "<h2>Description</h2>"])
-///```
 pub fn parse_to_html(gmi: &str) -> Result<Vec<String>, Box<dyn Error>> {
     let mut result = Vec::new();
 

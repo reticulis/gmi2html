@@ -1,4 +1,4 @@
-use gmi2html::parse_to_html;
+use gemini2html::parse_to_html;
 
 #[test]
 fn try_parse() {
