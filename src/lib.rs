@@ -1,3 +1,6 @@
+//! # gmi2html
+//! Simple library for parsing Gemini (gmi) to HTML format
+
 use std::error::Error;
 use std::fmt;
 use std::fmt::Write as _;
@@ -14,6 +17,8 @@ impl fmt::Display for ParseGmiErr {
 
 impl Error for ParseGmiErr {}
 
+/// Parse gemini (gmi) to html format
+///
 /// Usage:
 /// ```
 /// use gmi2html::parse_to_html;

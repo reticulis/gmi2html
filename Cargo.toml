@@ -3,6 +3,8 @@ authors = ["reticulis"]
 name = "gmi2html"
 version = "0.1.0"
 edition = "2021"
+description = "Simple library for parsing Gemini (gmi) to HTML format"
+license = "GPL3"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
