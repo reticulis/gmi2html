@@ -22,7 +22,7 @@ fn try_parse() {
     let link = "=> https://www.rust-lang.org/static/images/rust-logo-blk.svg Rust!";
     assert_eq!(
         parse_to_html(link).unwrap(),
-        vec!["<img src=\"https://www.rust-lang.org/static/images/rust-logo-blk.svg\">Rust!</img>"]
+        vec!["<img src=\"https://www.rust-lang.org/static/images/rust-logo-blk.svg\" alt=\"Rust!\">"]
     );
 
     let quote = "> Quote";

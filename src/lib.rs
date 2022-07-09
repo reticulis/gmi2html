@@ -81,7 +81,7 @@ pub fn parse_to_html(gmi: &str) -> Result<Vec<String>, Box<dyn Error>> {
             let image_formats = [".jpeg", ".png", ".jpg", ".webp", ".gif", ".svg"];
             for format in image_formats {
                 if url.ends_with(format) {
-                    result.push(format!("<img src=\"{url}\">{text}</img>"));
+                    result.push(format!("<img src=\"{url}\" alt=\"{text}\">"));
                     continue 'main
                 }
             }
